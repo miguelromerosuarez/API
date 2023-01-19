@@ -1,0 +1,53 @@
+import requests
+import time
+
+url = "https://telefonica.convertia.com/public/integration/process"
+password = "3n3r02023!"
+data = { "serviceToken": 'bfa85635-00b7-4a88-9919-f6adf1438e28',"serviceAction": "c2c",
+ "visitId": "null",
+ "contentUrl": "null",
+ "contentId": "null",
+ "templateId": "null",
+ "sourceId": "null",
+ "thankyouPageUrl": "null",
+ "formId": "null",
+ "buttonId": "null",
+ "contactData": "null",
+ "email": "fhernandez@mail.com",
+ "firstname": "Francisco",
+ "lastname": "Hernández",
+ "language": "es",
+ "owner": "Marcos",
+ "company": "null",
+ "position": "null",
+ "phone": "5523456789",
+ "mobile": "null",
+ "fax": "null",
+ "website": "null",
+ "address1": "null",
+ "address2": "null",
+ "country": "MX",
+ "state": "Ciudad de México",
+ "city": "Mexico",
+ "zip": "null",
+ "facebook": "null",
+ "twitter": "null",
+ "skype": "null",
+ "googlePlus": "null",
+ "linkedin": "null",
+ "instagram": "null",
+ "crm_current_plan": "tripleplay",
+ "crm_account_number": "null",
+ "referredDate": "2023-01-21 19:00:01",
+ "referredByContactId": "null",
+ "referredAtCampaignId": "null",
+ "referredAtInteractionId": "null" }
+
+while True:
+    try:
+        response = requests.post(url, auth=("bfa85635-00b7-4a88-9919-f6adf1438e28", password), data=data)
+        print(response.status_code)
+        print(response.text)
+        break
+    except requests.exceptions.ConnectionError as e:
+        time.sleep(1)
